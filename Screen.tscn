@@ -1,0 +1,232 @@
+[gd_scene load_steps=3 format=3 uid="uid://chp31gxphqfji"]
+
+[ext_resource type="Script" uid="uid://bgko0q8b5bqgn" path="res://sceen.gd" id="1_4vkur"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_uu6xs"]
+bg_color = Color(0.32656252, 0.32656252, 0.32656252, 1)
+border_width_left = 5
+border_width_top = 5
+border_width_right = 5
+border_width_bottom = 5
+border_color = Color(1, 1, 1, 1)
+corner_radius_top_left = 3
+corner_radius_top_right = 3
+corner_radius_bottom_right = 3
+corner_radius_bottom_left = 3
+expand_margin_left = 5.0
+expand_margin_top = 5.0
+expand_margin_right = 5.0
+expand_margin_bottom = 5.0
+
+[node name="Sceen" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_4vkur")
+
+[node name="Panel" type="Panel" parent="."]
+custom_minimum_size = Vector2(1000, 100)
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 1.0
+offset_left = 140.0
+offset_top = 30.0
+offset_right = -140.0
+offset_bottom = 178.0
+grow_horizontal = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_uu6xs")
+
+[node name="Bar" type="VBoxContainer" parent="Panel"]
+custom_minimum_size = Vector2(1000, 100)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Box" type="HBoxContainer" parent="Panel/Bar"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="Panel/Bar/Box"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_font_sizes/font_size = 24
+text = "白键水平间隔"
+
+[node name="WhiteWeight" type="HSlider" parent="Panel/Bar/Box"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 1
+size_flags_stretch_ratio = 5.0
+max_value = 200.0
+
+[node name="Label2" type="Label" parent="Panel/Bar/Box"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_font_sizes/font_size = 24
+text = "白键水平位移"
+
+[node name="WhiteOffestX" type="HSlider" parent="Panel/Bar/Box"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 1
+size_flags_stretch_ratio = 5.0
+min_value = -200.0
+max_value = 200.0
+
+[node name="Box2" type="HBoxContainer" parent="Panel/Bar"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="Panel/Bar/Box2"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_font_sizes/font_size = 24
+text = "白键竖直间隔"
+
+[node name="WhiteHeight" type="HSlider" parent="Panel/Bar/Box2"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 1
+size_flags_stretch_ratio = 5.0
+max_value = 200.0
+
+[node name="Label2" type="Label" parent="Panel/Bar/Box2"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_font_sizes/font_size = 24
+text = "白键竖直位移"
+
+[node name="WhiteOffestY" type="HSlider" parent="Panel/Bar/Box2"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 1
+size_flags_stretch_ratio = 5.0
+min_value = -200.0
+max_value = 200.0
+
+[node name="Box3" type="HBoxContainer" parent="Panel/Bar"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="Panel/Bar/Box3"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_font_sizes/font_size = 24
+text = "黑键水平间隔"
+
+[node name="BlackWeight" type="HSlider" parent="Panel/Bar/Box3"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 1
+size_flags_stretch_ratio = 5.0
+max_value = 200.0
+
+[node name="Label2" type="Label" parent="Panel/Bar/Box3"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_font_sizes/font_size = 24
+text = "黑键水平位移"
+
+[node name="BlackOffestX" type="HSlider" parent="Panel/Bar/Box3"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 1
+size_flags_stretch_ratio = 5.0
+min_value = -200.0
+max_value = 200.0
+
+[node name="Box4" type="HBoxContainer" parent="Panel/Bar"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="Panel/Bar/Box4"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_font_sizes/font_size = 24
+text = "黑键竖直间隔"
+
+[node name="BlackHeight" type="HSlider" parent="Panel/Bar/Box4"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 1
+size_flags_stretch_ratio = 5.0
+max_value = 200.0
+
+[node name="Label2" type="Label" parent="Panel/Bar/Box4"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_font_sizes/font_size = 24
+text = "黑键竖直位移"
+
+[node name="BlackOffestY" type="HSlider" parent="Panel/Bar/Box4"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 1
+size_flags_stretch_ratio = 5.0
+min_value = -200.0
+max_value = 200.0
+
+[node name="BG" type="TextureRect" parent="."]
+z_index = -1
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+expand_mode = 1
+stretch_mode = 5
+
+[node name="Import" type="Button" parent="."]
+custom_minimum_size = Vector2(100, 100)
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -116.0
+offset_top = 14.0
+offset_right = -16.0
+offset_bottom = 114.0
+grow_horizontal = 0
+theme_override_font_sizes/font_size = 25
+text = "导入
+图片"
+
+[node name="Quit" type="Button" parent="."]
+custom_minimum_size = Vector2(100, 100)
+layout_mode = 1
+offset_left = 17.0
+offset_top = 10.0
+offset_right = 117.0
+offset_bottom = 110.0
+theme_override_font_sizes/font_size = 25
+text = "返回"
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -20.0
+offset_top = -23.0
+offset_right = 20.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_font_sizes/font_size = 25
+text = "请务必在全屏模式下编辑！"
+
+[connection signal="pressed" from="Import" to="." method="import_bg"]
+[connection signal="pressed" from="Quit" to="." method="_on_quit_pressed"]

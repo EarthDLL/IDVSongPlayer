@@ -1,0 +1,86 @@
+[gd_scene load_steps=2 format=3 uid="uid://dt8n86esuix52"]
+
+[ext_resource type="Script" uid="uid://bi0akr8wg6hhe" path="res://main.gd" id="1_glv2v"]
+
+[node name="Main" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+script = ExtResource("1_glv2v")
+
+[node name="Title" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
+offset_bottom = 23.0
+grow_horizontal = 2
+theme_override_font_sizes/font_size = 60
+text = "第五人格钢琴家具自动弹奏工具"
+horizontal_alignment = 1
+
+[node name="Box" type="HBoxContainer" parent="."]
+custom_minimum_size = Vector2(0, 200)
+layout_mode = 1
+anchors_preset = 14
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_left = 140.0
+offset_top = -100.0
+offset_right = -140.0
+offset_bottom = 100.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 30
+
+[node name="Test" type="Button" parent="Box"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_font_sizes/font_size = 70
+text = "测试"
+
+[node name="Screen" type="Button" parent="Box"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_font_sizes/font_size = 70
+text = "配置"
+
+[node name="Songs" type="Button" parent="Box"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_font_sizes/font_size = 70
+text = "歌曲"
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -71.0
+offset_bottom = -14.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_font_sizes/font_size = 24
+horizontal_alignment = 1
+
+[node name="Info" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_top = -109.0
+offset_right = 530.0
+grow_vertical = 0
+theme_override_font_sizes/font_size = 24
+text = "作者：EarthDLL
+版本：Test1"
+vertical_alignment = 2
+
+[connection signal="pressed" from="Box/Test" to="." method="test"]
+[connection signal="pressed" from="Box/Screen" to="." method="_on_screen_pressed"]
+[connection signal="pressed" from="Box/Songs" to="." method="_on_songs_pressed"]

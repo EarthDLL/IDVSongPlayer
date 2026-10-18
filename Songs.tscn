@@ -1,0 +1,512 @@
+[gd_scene load_steps=13 format=3 uid="uid://cretmgtbw8ipa"]
+
+[ext_resource type="StyleBox" uid="uid://c25lt3yvwjkuv" path="res://Box.tres" id="1_b2f1b"]
+[ext_resource type="Script" uid="uid://ciay6tb05d4fo" path="res://songs.gd" id="1_wyb2d"]
+[ext_resource type="Texture2D" uid="uid://i1sqs3cf84te" path="res://Res/GuiChecked.svg" id="3_odbb3"]
+[ext_resource type="Texture2D" uid="uid://bp14ck45p67ly" path="res://Res/GuiCheckedDisabled.svg" id="4_jmi6u"]
+[ext_resource type="Script" uid="uid://b5nd50kcw42es" path="res://info.gd" id="5_jmi6u"]
+[ext_resource type="Script" uid="uid://ch4sorswyyowp" path="res://play.gd" id="6_0akdo"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_b2f1b"]
+bg_color = Color(0.19843751, 0.19843751, 0.19843751, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_wyb2d"]
+bg_color = Color(0.2, 0.2, 0.2, 1)
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_wyb2d"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_rxrod"]
+bg_color = Color(0.1015625, 0.1015625, 0.1015625, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_0akdo"]
+content_margin_left = 0.0
+content_margin_top = 0.0
+content_margin_right = 0.0
+content_margin_bottom = 0.0
+bg_color = Color(0.2421875, 0.2421875, 0.2421875, 1)
+corner_radius_top_left = 3
+corner_radius_top_right = 3
+corner_radius_bottom_right = 3
+corner_radius_bottom_left = 3
+corner_detail = 5
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_jmi6u"]
+bg_color = Color(0.2, 0.2, 0.2, 1)
+
+[node name="Songs" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_wyb2d")
+
+[node name="Import" type="VBoxContainer" parent="."]
+layout_mode = 0
+offset_left = 34.0
+offset_top = 27.0
+offset_right = 134.0
+offset_bottom = 127.0
+
+[node name="Import" type="Button" parent="Import"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(100, 100)
+layout_mode = 2
+theme_override_font_sizes/font_size = 30
+text = "导入
+歌曲"
+
+[node name="Return" type="Button" parent="Import"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(100, 100)
+layout_mode = 2
+theme_override_font_sizes/font_size = 30
+text = "返回"
+
+[node name="Label" type="Label" parent="Import"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 24
+text = "音乐音量"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Music" type="VSlider" parent="Import"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(0, 200)
+layout_mode = 2
+size_flags_horizontal = 1
+max_value = 1.0
+step = 0.05
+value = 1.0
+
+[node name="Panel" type="ScrollContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 178.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_b2f1b")
+theme_override_styles/focus = SubResource("StyleBoxFlat_b2f1b")
+horizontal_scroll_mode = 0
+
+[node name="SongList" type="VBoxContainer" parent="Panel"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme_override_constants/separation = 2
+
+[node name="Label" type="Label" parent="Panel/SongList"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 40
+theme_override_styles/normal = ExtResource("1_b2f1b")
+theme_override_styles/focus = ExtResource("1_b2f1b")
+text = "歌曲"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="SongInfo" type="PanelContainer" parent="Panel/SongList"]
+unique_name_in_owner = true
+visible = false
+layout_mode = 2
+theme_override_styles/panel = ExtResource("1_b2f1b")
+
+[node name="Box" type="HBoxContainer" parent="Panel/SongList/SongInfo"]
+layout_mode = 2
+
+[node name="Name" type="Label" parent="Panel/SongList/SongInfo/Box"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 1
+size_flags_stretch_ratio = 5.0
+theme_override_font_sizes/font_size = 30
+text = "Song"
+vertical_alignment = 1
+
+[node name="Delete" type="Button" parent="Panel/SongList/SongInfo/Box"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_font_sizes/font_size = 28
+text = "删除"
+
+[node name="Info" type="Button" parent="Panel/SongList/SongInfo/Box"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_font_sizes/font_size = 28
+text = "信息"
+
+[node name="Play" type="Button" parent="Panel/SongList/SongInfo/Box"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_font_sizes/font_size = 28
+text = "播放"
+
+[node name="ImportPanel" type="Panel" parent="."]
+unique_name_in_owner = true
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_wyb2d")
+
+[node name="Box" type="VBoxContainer" parent="ImportPanel"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 2
+
+[node name="Label" type="Label" parent="ImportPanel/Box"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 40
+theme_override_styles/normal = ExtResource("1_b2f1b")
+theme_override_styles/focus = ExtResource("1_b2f1b")
+text = "导入歌曲"
+horizontal_alignment = 1
+
+[node name="Scroll" type="ScrollContainer" parent="ImportPanel/Box"]
+layout_mode = 2
+size_flags_vertical = 3
+horizontal_scroll_mode = 0
+
+[node name="ImportBox" type="VBoxContainer" parent="ImportPanel/Box/Scroll"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme_override_constants/separation = 2
+
+[node name="SongWaiter" type="HBoxContainer" parent="ImportPanel/Box/Scroll/ImportBox"]
+unique_name_in_owner = true
+visible = false
+layout_mode = 2
+theme_override_constants/separation = 0
+
+[node name="Button" type="CheckBox" parent="ImportPanel/Box/Scroll/ImportBox/SongWaiter"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_font_sizes/font_size = 38
+theme_override_styles/normal = ExtResource("1_b2f1b")
+theme_override_styles/pressed = ExtResource("1_b2f1b")
+theme_override_styles/hover = ExtResource("1_b2f1b")
+theme_override_styles/hover_pressed = ExtResource("1_b2f1b")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_wyb2d")
+theme_override_icons/checked = ExtResource("3_odbb3")
+theme_override_icons/unchecked = ExtResource("4_jmi6u")
+theme_override_icons/checked_disabled = ExtResource("4_jmi6u")
+text = "Song"
+clip_text = true
+
+[node name="Label" type="Label" parent="ImportPanel/Box/Scroll/ImportBox/SongWaiter"]
+custom_minimum_size = Vector2(0, 44)
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_font_sizes/font_size = 38
+theme_override_styles/normal = ExtResource("1_b2f1b")
+theme_override_styles/focus = ExtResource("1_b2f1b")
+text = "AAA"
+vertical_alignment = 1
+
+[node name="Box" type="HBoxContainer" parent="ImportPanel/Box"]
+custom_minimum_size = Vector2(0, 100)
+layout_mode = 2
+theme_override_constants/separation = 200
+alignment = 1
+
+[node name="All" type="Button" parent="ImportPanel/Box/Box"]
+custom_minimum_size = Vector2(300, 0)
+layout_mode = 2
+theme_override_font_sizes/font_size = 30
+text = "导入全部"
+
+[node name="Part" type="Button" parent="ImportPanel/Box/Box"]
+custom_minimum_size = Vector2(300, 0)
+layout_mode = 2
+theme_override_font_sizes/font_size = 30
+text = "导入选中"
+
+[node name="Control" type="Control" parent="ImportPanel/Box"]
+custom_minimum_size = Vector2(0, 20)
+layout_mode = 2
+
+[node name="Info" type="Panel" parent="."]
+unique_name_in_owner = true
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("5_jmi6u")
+
+[node name="Panel" type="Panel" parent="Info"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 320.0
+offset_top = 110.0
+offset_right = -320.0
+offset_bottom = -110.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_rxrod")
+
+[node name="InfoLabel" type="Label" parent="Info/Panel"]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -79.0
+offset_right = 79.0
+offset_bottom = 49.0
+grow_horizontal = 2
+theme_override_font_sizes/font_size = 30
+text = "Song Info"
+
+[node name="Box" type="VBoxContainer" parent="Info/Panel"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = 229.0
+grow_horizontal = 2
+grow_vertical = 2
+alignment = 2
+
+[node name="Box" type="HBoxContainer" parent="Info/Panel/Box"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="Info/Panel/Box/Box"]
+custom_minimum_size = Vector2(0, 50)
+layout_mode = 2
+theme_override_font_sizes/font_size = 28
+text = "名称"
+vertical_alignment = 1
+
+[node name="NameEdit" type="TextEdit" parent="Info/Panel/Box/Box"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(0, 50)
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_font_sizes/font_size = 30
+text = "AAAAA"
+
+[node name="Box2" type="HBoxContainer" parent="Info/Panel/Box"]
+layout_mode = 2
+
+[node name="OffestLabel" type="Label" parent="Info/Panel/Box/Box2"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(0, 50)
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_font_sizes/font_size = 28
+text = "音符间隔:"
+vertical_alignment = 1
+
+[node name="OffestEdit" type="HSlider" parent="Info/Panel/Box/Box2"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(0, 50)
+layout_mode = 2
+size_flags_horizontal = 3
+min_value = -100.0
+
+[node name="Box4" type="HBoxContainer" parent="Info/Panel/Box"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="Info/Panel/Box/Box4"]
+custom_minimum_size = Vector2(0, 50)
+layout_mode = 2
+theme_override_font_sizes/font_size = 28
+text = "录入歌曲"
+vertical_alignment = 1
+
+[node name="SongEdit" type="Button" parent="Info/Panel/Box/Box4"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(0, 50)
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_font_sizes/font_size = 30
+text = "点击录入"
+
+[node name="Box3" type="HBoxContainer" parent="Info/Panel/Box"]
+layout_mode = 2
+
+[node name="MusicOffestLabel" type="Label" parent="Info/Panel/Box/Box3"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(0, 50)
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_font_sizes/font_size = 28
+text = "歌曲播放时间偏移:"
+vertical_alignment = 1
+
+[node name="MusicOffestEdit" type="HSlider" parent="Info/Panel/Box/Box3"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(0, 50)
+layout_mode = 2
+size_flags_horizontal = 3
+min_value = -5.0
+max_value = 5.0
+step = 0.1
+
+[node name="DeleteConfirm" type="Panel" parent="."]
+unique_name_in_owner = true
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_0akdo")
+script = ExtResource("5_jmi6u")
+
+[node name="DeleteInfoLabel" type="Label" parent="DeleteConfirm"]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = 14
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_top = -130.0
+offset_bottom = 24.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/font_size = 35
+text = "Song Info"
+horizontal_alignment = 1
+
+[node name="Box" type="HBoxContainer" parent="DeleteConfirm"]
+layout_mode = 1
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -201.0
+offset_bottom = -41.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_constants/separation = 300
+alignment = 1
+
+[node name="Cancel" type="Button" parent="DeleteConfirm/Box"]
+custom_minimum_size = Vector2(300, 0)
+layout_mode = 2
+theme_override_font_sizes/font_size = 50
+text = "取消"
+
+[node name="Confirm" type="Button" parent="DeleteConfirm/Box"]
+custom_minimum_size = Vector2(300, 0)
+layout_mode = 2
+theme_override_font_sizes/font_size = 50
+text = "确定"
+
+[node name="Play" type="Panel" parent="."]
+unique_name_in_owner = true
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_jmi6u")
+script = ExtResource("6_0akdo")
+
+[node name="Box" type="VBoxContainer" parent="Play"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+
+[node name="Title" type="Label" parent="Play/Box"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_font_sizes/font_size = 40
+text = "演奏中"
+horizontal_alignment = 1
+
+[node name="Status" type="Label" parent="Play/Box"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_vertical = 3
+size_flags_stretch_ratio = 3.0
+theme_override_font_sizes/font_size = 50
+text = "状态"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Play/Box"]
+layout_mode = 2
+size_flags_vertical = 3
+mouse_filter = 2
+theme_override_constants/separation = 200
+alignment = 1
+
+[node name="Pause" type="Button" parent="Play/Box/HBoxContainer"]
+custom_minimum_size = Vector2(300, 0)
+layout_mode = 2
+theme_override_font_sizes/font_size = 30
+text = "继续"
+
+[node name="Quit" type="Button" parent="Play/Box/HBoxContainer"]
+custom_minimum_size = Vector2(300, 0)
+layout_mode = 2
+theme_override_font_sizes/font_size = 30
+text = "退出"
+
+[node name="Control" type="Control" parent="Play/Box"]
+custom_minimum_size = Vector2(0, 50)
+layout_mode = 2
+mouse_filter = 2
+
+[node name="Label" type="Label" parent="Play"]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -20.0
+offset_top = -23.0
+offset_right = 20.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_font_sizes/font_size = 24
+text = "点击任意空白位置即暂停"
+
+[node name="Audio" type="AudioStreamPlayer" parent="."]
+unique_name_in_owner = true
+
+[connection signal="pressed" from="Import/Import" to="." method="_on_import_pressed"]
+[connection signal="pressed" from="Import/Return" to="." method="_on_return_pressed"]
+[connection signal="drag_ended" from="Import/Music" to="." method="_on_music_drag_ended"]
+[connection signal="pressed" from="ImportPanel/Box/Box/All" to="." method="import" binds= [true]]
+[connection signal="pressed" from="ImportPanel/Box/Box/Part" to="." method="import" binds= [false]]
+[connection signal="quit" from="Info" to="." method="info_update"]
+[connection signal="text_changed" from="Info/Panel/Box/Box/NameEdit" to="." method="update" binds= [0.0, true]]
+[connection signal="drag_ended" from="Info/Panel/Box/Box2/OffestEdit" to="." method="update"]
+[connection signal="value_changed" from="Info/Panel/Box/Box2/OffestEdit" to="Info" method="update_offest"]
+[connection signal="pressed" from="Info/Panel/Box/Box4/SongEdit" to="." method="update"]
+[connection signal="pressed" from="Info/Panel/Box/Box4/SongEdit" to="Info" method="change_song_path"]
+[connection signal="drag_ended" from="Info/Panel/Box/Box3/MusicOffestEdit" to="." method="update"]
+[connection signal="value_changed" from="Info/Panel/Box/Box3/MusicOffestEdit" to="Info" method="update_music_offest"]
+[connection signal="pressed" from="DeleteConfirm/Box/Cancel" to="." method="_on_delete_cancel_pressed"]
+[connection signal="pressed" from="DeleteConfirm/Box/Confirm" to="." method="_on_delete_confirm_pressed"]
+[connection signal="pause" from="Play" to="." method="pause"]
+[connection signal="pressed" from="Play/Box/HBoxContainer/Pause" to="." method="conti"]
+[connection signal="pressed" from="Play/Box/HBoxContainer/Quit" to="." method="quit"]
